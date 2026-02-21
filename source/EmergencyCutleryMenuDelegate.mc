@@ -10,6 +10,6 @@ class EmergencyCutleryMenuDelegate extends WatchUi.MenuInputDelegate {
     function onMenuItem(item as Symbol) as Void {
         // Find the main view and tell it which tool to "generate"
         var view = new ToolGeneratingView(item);
-        WatchUi.switchToView(view, new WatchUi.BehaviorDelegate(), WatchUi.SLIDE_IMMEDIATE);
+        WatchUi.switchToView(view, new EasterEggDelegate(), WatchUi.SLIDE_IMMEDIATE);
     }
 }

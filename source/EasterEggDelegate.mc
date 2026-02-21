@@ -2,7 +2,7 @@ import Toybox.WatchUi;
 import Toybox.System;
 import Toybox.Lang;
 
-class EmergencyCutleryDelegate extends WatchUi.BehaviorDelegate {
+class EasterEggDelegate extends WatchUi.BehaviorDelegate {
     private var _clickCount as Number = 0;
     private var _lastClickTime as Number = 0;
     private const TIMEOUT_MS as Number = 1000; // 1 second window between clicks
@@ -17,35 +17,36 @@ class EmergencyCutleryDelegate extends WatchUi.BehaviorDelegate {
 
     function onSelect() as Boolean {
         var currentTime = System.getTimer();
-        
+
         // Check if the click is within the timeout window
         if (currentTime - _lastClickTime < TIMEOUT_MS) {
             _clickCount++;
         } else {
             _clickCount = 1; // Reset to 1 if they took too long
         }
-        
+
         _lastClickTime = currentTime;
 
-        // Easter Egg Trigger: 5 Quick Clicks
-        if (_clickCount >= 5) {
+        if (visitedKnife && visitedFork && visitedSpoon && _clickCount >= 5) {
             _clickCount = 0; // Reset
-            WatchUi.pushView(new ToolGeneratingView(:spork), new WatchUi.BehaviorDelegate(), WatchUi.SLIDE_IMMEDIATE);
+            WatchUi.pushView(
+                new ToolGeneratingView(:egg),
+                new WatchUi.BehaviorDelegate(),
+                WatchUi.SLIDE_IMMEDIATE
+            );
             return true;
         }
 
-        // Standard Menu (Only shows if they haven't triple-clicked yet)
-        // Note: In a real app, the menu might trigger on the first click.
-        // To avoid this, we'll delay the menu slightly or just accept 
-        // that the Spork is triggered from the Main Page only.
-        
-        var menu = new WatchUi.Menu();
-        menu.setTitle("Select Tool");
-        menu.addItem("Knife", :knife);
-        menu.addItem("Fork", :fork);
-        menu.addItem("Spoon", :spoon);
-        
-        WatchUi.pushView(menu, new EmergencyCutleryMenuDelegate(), WatchUi.SLIDE_UP);
-        return true;
+        if (_clickCount >= 5) {
+            _clickCount = 0; // Reset
+            WatchUi.pushView(
+                new ToolGeneratingView(:spork),
+                new WatchUi.BehaviorDelegate(),
+                WatchUi.SLIDE_IMMEDIATE
+            );
+            return true;
+        }
+
+        return false;
     }
 }

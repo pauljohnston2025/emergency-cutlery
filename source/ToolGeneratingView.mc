@@ -3,6 +3,10 @@ import Toybox.WatchUi;
 import Toybox.Timer;
 import Toybox.Lang;
 
+var visitedKnife as Boolean = false;
+var visitedFork as Boolean = false;
+var visitedSpoon as Boolean = false;
+
 class ToolGeneratingView extends WatchUi.View {
     private var _tool as Symbol;
     private var _progress as Number = 0;
@@ -20,10 +24,17 @@ class ToolGeneratingView extends WatchUi.View {
 
         if (_tool == :knife) {
             _toolBitmap = WatchUi.loadResource(Rez.Drawables.KnifeImg) as BitmapResource?;
+            visitedKnife = true;
         } else if (_tool == :fork) {
             _toolBitmap = WatchUi.loadResource(Rez.Drawables.ForkImg) as BitmapResource?;
+            visitedFork = true;
         } else if (_tool == :spoon) {
             _toolBitmap = WatchUi.loadResource(Rez.Drawables.SpoonImg) as BitmapResource?;
+            visitedSpoon = true;
+        } else if (_tool == :spork) {
+            _toolBitmap = WatchUi.loadResource(Rez.Drawables.SporkImg) as BitmapResource?;
+        } else if (_tool == :egg) {
+            _toolBitmap = WatchUi.loadResource(Rez.Drawables.EggImg) as BitmapResource?;
         }
     }
 
@@ -53,6 +64,10 @@ class ToolGeneratingView extends WatchUi.View {
             toolName = "FORK";
         } else if (_tool == :spoon) {
             toolName = "SPOON";
+        } else if (_tool == :spork) {
+            toolName = "SPORK";
+        } else if (_tool == :egg) {
+            toolName = "EGG";
         }
 
         if (_progress <= 100) {
@@ -119,6 +134,19 @@ class ToolGeneratingView extends WatchUi.View {
                 "(Do not lick screen)",
                 Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER
             );
+
+            if (_tool == :spork) {
+                dc.setColor(0xffd700, Graphics.COLOR_TRANSPARENT); // Gold
+                dc.setPenWidth(6);
+                dc.drawArc(
+                    screenW / 2,
+                    screenH / 2,
+                    screenW / 2,
+                    Graphics.ARC_COUNTER_CLOCKWISE,
+                    0,
+                    360
+                );
+            }
         }
     }
 }

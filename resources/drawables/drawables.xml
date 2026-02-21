@@ -4,4 +4,6 @@
     <bitmap id="KnifeImg" filename="knife.png" automaticPalette="false" dithering="none" scaleX="40%" scaleY="50%" scaleRelativeTo="screen" packingFormat="default"/>
     <bitmap id="ForkImg" filename="fork.png" automaticPalette="false" dithering="none" scaleX="40%" scaleY="50%" scaleRelativeTo="screen" packingFormat="default"/>
     <bitmap id="SpoonImg" filename="spoon.png" automaticPalette="false" dithering="none" scaleX="40%" scaleY="50%" scaleRelativeTo="screen" packingFormat="default"/>
+    <bitmap id="SporkImg" filename="spork.png" automaticPalette="false" dithering="none" scaleX="40%" scaleY="50%" scaleRelativeTo="screen" packingFormat="default"/>
+    <bitmap id="EggImg" filename="egg.png" automaticPalette="false" dithering="none" scaleX="40%" scaleY="50%" scaleRelativeTo="screen" packingFormat="default"/>
 </drawables>
