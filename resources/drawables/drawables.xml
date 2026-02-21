@@ -1,0 +1,7 @@
+<drawables xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
+    <bitmap id="LauncherIcon" filename="icon.png" automaticPalette="false" dithering="none" scaleX="100%" scaleY="100%" scaleRelativeTo="screen" packingFormat="default"/>
+    <bitmap id="MonkeyChef" filename="icon.png" automaticPalette="false" dithering="none" scaleX="60%" scaleY="60%" scaleRelativeTo="screen" packingFormat="default"/>
+    <bitmap id="KnifeImg" filename="knife.png" automaticPalette="false" dithering="none" scaleX="40%" scaleY="50%" scaleRelativeTo="screen" packingFormat="default"/>
+    <bitmap id="ForkImg" filename="fork.png" automaticPalette="false" dithering="none" scaleX="40%" scaleY="50%" scaleRelativeTo="screen" packingFormat="default"/>
+    <bitmap id="SpoonImg" filename="spoon.png" automaticPalette="false" dithering="none" scaleX="40%" scaleY="50%" scaleRelativeTo="screen" packingFormat="default"/>
+</drawables>
