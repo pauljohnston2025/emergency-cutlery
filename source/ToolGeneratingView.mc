@@ -47,6 +47,18 @@ class ToolGeneratingView extends WatchUi.View {
         WatchUi.requestUpdate();
     }
 
+    (:leftAligned)
+    function getX(screenW as Number, _toolBitmap as Toybox.WatchUi.BitmapResource) as Number
+    {
+        return 20;
+    }
+    
+    (:centered)
+    function getX(screenW as Number, _toolBitmap as Toybox.WatchUi.BitmapResource) as Number
+    {
+        return (screenW - _toolBitmap.getWidth()) / 2;
+    }
+
     // Inside ToolGeneratingView.mc
 
     function onUpdate(dc as Dc) as Void {
@@ -102,7 +114,7 @@ class ToolGeneratingView extends WatchUi.View {
         } else {
             // READY STATE
             if (_toolBitmap != null) {
-                var bX = (screenW - _toolBitmap.getWidth()) / 2;
+                var bX = getX(screenW, _toolBitmap);
                 var bY = (screenH - _toolBitmap.getHeight() - screenH * 0.35) / 2;
                 dc.drawBitmap(bX, bY, _toolBitmap);
             }

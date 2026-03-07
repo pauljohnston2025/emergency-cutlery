@@ -1,1 +1,9 @@
 project.manifest = manifest.xml
+
+base.excludeAnnotations = leftAligned
+
+# instinct series has a physical circle on the upper left, we need to move the images to the left to avoid te circle
+instinct2.excludeAnnotations = centered
+instinct2s.excludeAnnotations = centered
+instinct2x.excludeAnnotations = centered
+instinct3solar45mm.excludeAnnotations = centered

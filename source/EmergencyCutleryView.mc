@@ -13,6 +13,18 @@ class EmergencyCutleryView extends WatchUi.View {
         _monkey = WatchUi.loadResource(Rez.Drawables.MonkeyChef) as BitmapResource;
     }
 
+    (:leftAligned)
+    function getX(screenW as Number, _monkey as Toybox.WatchUi.BitmapResource) as Number
+    {
+        return 0;
+    }
+    
+    (:centered)
+    function getX(screenW as Number, _monkey as Toybox.WatchUi.BitmapResource) as Number
+    {
+        return (screenW - _monkey.getWidth()) / 2;
+    }
+
     function onUpdate(dc as Dc) as Void {
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
@@ -22,7 +34,7 @@ class EmergencyCutleryView extends WatchUi.View {
 
         // 1. Draw Monkey (Shifted higher to make room)
         if (_monkey != null) {
-            var mX = (screenW - _monkey.getWidth()) / 2;
+            var mX = getX(screenW, _monkey);
             var mY = (screenH - _monkey.getHeight() - screenH * 0.35) / 2;
             dc.drawBitmap(mX, mY, _monkey);
         }
